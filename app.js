@@ -1,19 +1,10 @@
-const express = require('express')
-const app = express()
+const app = require('./config/server')
 
-app.set('view engine', 'ejs')
+const rotaHome = require('./app/routes/home')(app)
 
-app.get('/', (req,res)=>{
-    res.render('home/index')
-})
+const rotaFormularioInclusaoNoticia = require('./app/routes/formulario_inclusao_noticia')(app)
 
-app.get('/formulario_inclusao_noticia', (req,res)=>{
-    res.render('admin/form_add_noticia')
-})
-
-app.get('/noticias', (req,res)=>{
-    res.render('noticias/noticias')
-})
+const rotaNoticias = require('./app/routes/noticias')(app)
 
 app.listen(3000, ()=>{
     console.log('Servidor rodando com Express')
