@@ -2,11 +2,39 @@
 	<html lang="pt-br">
 		<head>
 			<meta charset="utf-8"/>
-			<title>Formul�rio de cadastro de Not�cia</title>
+			<title>Formulário de cadastro de Notícia</title>
 		</head>
 	<body>
 
-		<h1>Adicionar not�cia</h1>
+		<h1>Adicionar notícia</h1>
 
+		<% if(validacao) { %> 
+			<ul>
+				<% for(let i=0; i< validacao.length; i++) { %>
+					<li>
+						<%= validacao[i].msg %> 
+					</li>
+				<% } %>  
+			</ul>
+		<% } %> 
+		<% console.log(noticia) %> 
+		<form action="/noticias/salvar" method="POST">
+			<label for="titulo">Título</label>
+			<input type="text" id="titulo" name="titulo" value="<%=noticia.titulo%>" placeholder="Titulo da notícia"/>
+			<br/>
+			<label for="titulo">Resumo</label>
+			<input type="text" id="resumo" name="resumo" value="<%=noticia.resumo%>" placeholder="Resumo da notícia"/>
+			<br/>
+			<label for="titulo">Nome do autor</label>
+			<input type="text" id="autor" name="autor" value="<%=noticia.autor%>" placeholder="Autor da notícia"/>
+			<br/>
+			<label for="titulo">Data dos fatos</label>
+			<input type="date" id="data_noticia" name="data_noticia" value="<%=noticia.data_noticia%>" placeholder="Data da notícia"/>
+			<br/>
+
+			<label for="noticia">Notícia</label>
+			<textarea id="noticia" name="noticia" cols="30" rows="5" value="<%=noticia.noticia%>"></textarea>
+			<input type="submit" value="Enviar">
+		</form>
 	</body>
 </html>
