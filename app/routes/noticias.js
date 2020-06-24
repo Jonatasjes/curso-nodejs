@@ -1,24 +1,10 @@
-module.exports = (appp) => {
+module.exports = (app) => {
 
-    appp.get('/noticias', (req,res)=>{
-
-        const connection = appp.config.dbConnections()
-        
-
-        const noticiasDAO = new appp.app.models.NoticiasDAO(connection)
-
-        noticiasDAO.getNoticias( (error,result) => {
-            res.render('noticias/noticias', {noticias : result})
-        })
+    app.get('/noticias', (req,res)=>{
+        app.app.controllers.noticias.noticias(app, req, res)
     })
 
     app.get('/noticia', (req, res)=> {
-        const connection = app.config.dbConnections()
-
-        const noticiaDAO = new app.app.models.NoticiasDAO(connection)
-
-        noticiaDAO.getNoticia((error, result) => {
-            res.render('noticias/noticia', {noticia: result})
-        })
+        app.app.controllers.noticias.noticia(app, req, res)
     })
 }
