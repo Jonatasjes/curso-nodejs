@@ -2,7 +2,7 @@
 	<html lang="pt-br">
 		<head>
 			<meta charset="utf-8"/>
-			<title>Formulário de cadastro de Notícia</title>
+			<title>Formulário de cadastro de Not�cia</title>
 		</head>
 	<body>
 
@@ -17,23 +17,23 @@
 				<% } %>  
 			</ul>
 		<% } %> 
-		<% console.log(noticia) %> 
+		
 		<form action="/noticias/salvar" method="POST">
-			<label for="titulo">Título</label>
-			<input type="text" id="titulo" name="titulo" value="<%=noticia.titulo%>" placeholder="Titulo da notícia"/>
+			<label>Título</label>
+			<input type="text" id="titulo" name="titulo" value="<%= noticia.titulo %>"  placeholder="Titulo da notícia"/>
 			<br/>
-			<label for="titulo">Resumo</label>
-			<input type="text" id="resumo" name="resumo" value="<%=noticia.resumo%>" placeholder="Resumo da notícia"/>
+			<label>Resumo</label>
+			<input type="text" id="resumo" name="resumo" value="<%= noticia.resumo%>"  placeholder="Resumo da notícia"/>
 			<br/>
-			<label for="titulo">Nome do autor</label>
-			<input type="text" id="autor" name="autor" value="<%=noticia.autor%>" placeholder="Autor da notícia"/>
+			<label>Nome do autor</label>
+			<input type="text" id="autor" name="autor" value="<%= noticia.autor %>" placeholder="Autor da notícia"/>
 			<br/>
-			<label for="titulo">Data dos fatos</label>
-			<input type="date" id="data_noticia" name="data_noticia" value="<%=noticia.data_noticia%>" placeholder="Data da notícia"/>
+			<label>Data dos fatos</label>
+			<input type="date" id="data_noticia" name="data_noticia" value="<%= noticia.data_noticia %>" placeholder="Data da notícia"/>
 			<br/>
 
-			<label for="noticia">Notícia</label>
-			<textarea id="noticia" name="noticia" cols="30" rows="5" value="<%=noticia.noticia%>"></textarea>
+			<label>Notícia</label>
+			<textarea name="noticia" id="noticia" cols="30" rows="5" value="<%= noticia.noticia %>"></textarea>
 			<input type="submit" value="Enviar">
 		</form>
 	</body>
