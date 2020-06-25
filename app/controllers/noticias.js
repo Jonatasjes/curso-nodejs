@@ -9,7 +9,9 @@ module.exports.noticias = function(app, req, res) {
 module.exports.noticia = function(app, req, res) {
     const connection = app.config.dbConnections()
     const noticiaDAO = new app.app.models.NoticiasDAO(connection)
-    noticiaDAO.getNoticia((error, result) => {
+    const id_noticia = req.query
+
+    noticiaDAO.getNoticia(id_noticia, (error, result)=> {
         res.render('noticias/noticia', {noticia: result})
     })
 }
